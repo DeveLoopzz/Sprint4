@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('armor_have_item', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('armor_id')->constrained('armor');
-            $table->foreignId('item_id')->constrained('item');
+            $table->foreignId('armor_id')->constrained('armor')->onDelete('cascade');
+            $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
             $table->integer('quantity')->default(0);
             $table->timestamps();
-
-            $table->check('quantity <= 10');
 
         });
     }
