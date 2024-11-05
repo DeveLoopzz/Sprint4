@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
 
+//ArmorRoutes
 Route::get('/armors', [ArmorController::class, 'read']);
 Route::get('/armors/create', [ArmorController::class, 'create']);
 Route::get('/armors/update', [ArmorController::class, 'update']);
