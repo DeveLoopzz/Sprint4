@@ -8,21 +8,21 @@ class ArmorController extends Controller
 {
     public function read() 
     {
-        return view('Item.read');
+        return view('Armor.read');
     }
 
     public function create()
     {
-        return view('Item.create');
+        return view('Armor.create');
     }
 
     public function update() 
     {
-        return view('Item.update');
+        return view('Armor.update');
     }
 
     public function delete() 
     {
-        return view('Item.delete');
+        return view('Armor.delete');
     }
 }
