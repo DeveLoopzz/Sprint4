@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('descripcion');
             $table->enum('metodo_obtencion', ['Afloramiento_minero', 'Pila_de_huesos', 'Monstruo'])->default('Monstruo');
             $table->enum('rareza', ['Rareza_10', 'Rareza_11', 'Rareza_12'])->default('Rareza_10');
-            $table->timestamps();
         });
     }
 

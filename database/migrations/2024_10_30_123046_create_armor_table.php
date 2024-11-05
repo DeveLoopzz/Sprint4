@@ -25,7 +25,6 @@ return new class extends Migration
             $table->enum('socket_1', [0,1,2,3,4])->default(0)->nullable();
             $table->enum('socket_2', [0,1,2,3,4])->default(0)->nullable();
             $table->enum('socket_3', [0,1,2,3,4])->default(0)->nullable();
-            $table->timestamps();
         });
     }
 

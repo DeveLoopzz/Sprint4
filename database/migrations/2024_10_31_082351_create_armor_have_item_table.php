@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('armor_have_item', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('armor_id')->constrained('armor')->onDelete('cascade');
             $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
             $table->integer('quantity')->default(1);
-            $table->timestamps();
 
+            //Definimos la clave primaria compuesta
+            $table->primary(['armor_id', 'item_id']);
         });
     }
 
