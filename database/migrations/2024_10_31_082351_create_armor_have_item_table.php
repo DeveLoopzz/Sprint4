@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('armor_id')->constrained('armor')->onDelete('cascade');
             $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
-            $table->integer('quantity')->default(0);
+            $table->integer('quantity')->default(1);
             $table->timestamps();
 
         });

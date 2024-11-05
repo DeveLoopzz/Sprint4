@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('armor', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->foreignId('item_1')->constrained('items')->onDelete('cascade');
-            $table->foreignId('item_2')->constrained('items')->onDelete('cascade');
-            $table->foreignId('item_3')->constrained('items')->onDelete('cascade');
-            $table->foreignId('item_4')->constrained('items')->onDelete('cascade');
             $table->enum('rareza', ['Rareza_10', 'Rareza_11', 'Rareza_12'])->default('Rareza_10');
             $table->enum('tipo', ['Casco', 'Pechera', 'Guantes', 'Cinturon', 'Botas'])->default('Casco');
             $table->integer('armadura')->default(0);
