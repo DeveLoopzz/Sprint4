@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+    public function __invoke()
+    {
+
+    }
+    
     public function read() 
     {
         return view('Item.read');

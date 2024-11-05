@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ArmorController extends Controller
 {
+
+    public function __invoke()
+    {
+
+    }
     public function read() 
     {
         return view('Armor.read');
