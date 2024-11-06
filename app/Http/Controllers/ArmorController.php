@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Armor;
 use Illuminate\Http\Request;
 
 class ArmorController extends Controller
@@ -12,7 +13,9 @@ class ArmorController extends Controller
 
     }
     public function read() 
-    {
+    {   
+        $armorType = Armor::getPart();
+        $armorRarity = Armor::getRareza();
         return view('Armor.read');
     }
 

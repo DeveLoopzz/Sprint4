@@ -19,7 +19,9 @@ class ItemController extends Controller
 
     public function create()
     {
-        return view('Item.create');
+        $metodosObtencion = Item::getMetodosObtencion();
+        $rareza = Item::getRareza();
+        return view('Item.create', compact('metodosObtencion', 'rareza'));
     }
     public function store(Request $request) 
     {
