@@ -15,7 +15,7 @@ class Armor extends Model
         return Attribute::make(
             set: function($armadura) 
             {
-               return $armadura > 100 ? 100 : $armadura;
+               return $armadura > 200 ? 200 : $armadura;
             }
         );
     }
