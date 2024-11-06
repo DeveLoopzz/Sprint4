@@ -20,6 +20,17 @@ class Armor extends Model
         );
     }
 
+    //GETTERS DE ENUMS
+    public static function getPart() 
+    {
+        return['Casco', 'Pechera', 'Guantes', 'Cinturon', 'Botas'];
+    }
+
+    public static function getRareza()
+    {
+        return ['Rareza_10', 'Rareza_11', 'Rareza_12'];
+    }
+
     //MUTADORES RESISTENCIAS
     protected function res_fuego(): Attribute
     {
