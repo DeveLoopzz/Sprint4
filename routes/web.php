@@ -1,32 +1,21 @@
 <?php
 
+use App\Http\Controllers\ArmorController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
 
-Route::get('/armors', function () {
-    return view('armors');
-});
+//ArmorRoutes
+Route::get('/armors', [ArmorController::class, 'read']);
+Route::get('/armors/create', [ArmorController::class, 'create']);
+Route::get('/armors/update', [ArmorController::class, 'update']);
+Route::get('/armors/delete', [ArmorController::class, 'delete']);
 
-Route::get('/armors/edit/{armor}', function ($armor) {
-    return view('armorsEdit');
-});
-
-Route::get('/armors/delete/{armor}', function ($armor) {
-    return view('armorsDelete');
-});
-
-Route::get('/items', function () {
-    return view('items');
-});
-
-Route::get('/items/edit/{item}', function ($item) {
-    return view('itemsEdit');
-});
-
-Route::get('/items/delete/{item}', function ($item) {
-    return view('itemsDelete');
-});
+//ItemRoutes
+Route::get('/items', [ItemController::class, 'read']);
+Route::get('/items/create', [ItemController::class, 'create']);
+Route::get('/items/update', [ItemController::class, 'update']);
+Route::get('/items/delete', [ItemController::class, 'delete']);
 
