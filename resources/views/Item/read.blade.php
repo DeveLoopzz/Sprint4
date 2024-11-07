@@ -18,8 +18,10 @@
                 </p>
             </a>
         </div>
-        <div>
-            <div>
-        </div>
         @endforeach
+        <div class="tarjeta" style="border 2px solid black;">
+            <a href="/items/create">
+                <h3>Create new item</h3>
+            </a>
+        </div>
 </body>    
