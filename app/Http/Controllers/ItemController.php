@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    public function __invoke()
-    {
-
-    }
+    public function __invoke(){}
     
     public function read() 
     {
@@ -37,8 +34,9 @@ class ItemController extends Controller
     }
 
     public function update() 
-    {
-        return view('Item.update');
+    {   
+        $item = Item::all();
+        return view('Item.update' , compact('item'));
     }
 
     public function delete() 
