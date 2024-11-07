@@ -25,9 +25,9 @@
         </label>
         <label>
             Rareza:
-            <select>
-                @foreach ($rareza as $rarezas)
-                    <option value="{{$rarezas}}"> {{ucfirst($rarezas)}}</option>
+            <select name="rareza">
+                @foreach ($rarezas as $rareza)
+                    <option value="{{$rareza}}">{{ucfirst($rareza)}}</option>
                 @endforeach
             </select>
         </label>

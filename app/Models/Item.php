@@ -15,7 +15,7 @@ class Item extends Model
         return ['Afloramiento minero','Pila de huesos','Monstruo'];
     }
 
-    public static function getRareza()
+    public static function getRarezaItem()
     {
         return ['Rareza 10', 'Rareza 11', 'Rareza 12'];
     }
