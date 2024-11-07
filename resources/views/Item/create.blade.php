@@ -17,11 +17,19 @@
         </label>
         <label>
             Metodo de obtención:
-            <input type="text" name="metodo_obtencion">
+            <select name="metodo_obtencion">
+                @foreach ($metodosObtencion as $metodo)
+                    <option value="{{$metodo}}">{{ucfirst($metodo)}}</option>
+                @endforeach
+            </select>
         </label>
         <label>
             Rareza:
-            <input type="text" name="rareza">
+            <select>
+                @foreach ($rareza as $rarezas)
+                    <option value="{{$rarezas}}"> {{ucfirst($rarezas)}}</option>
+                @endforeach
+            </select>
         </label>
 
         <button type="submit">

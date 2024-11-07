@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class ArmorHaveItems extends Model
 {
     protected $table = 'armor_have_item';
+    public $timestamps = false;
+
 }

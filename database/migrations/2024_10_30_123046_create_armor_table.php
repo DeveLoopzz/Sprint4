@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('armor', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->enum('rareza', ['Rareza_10', 'Rareza_11', 'Rareza_12'])->default('Rareza_10');
+            $table->enum('rareza', ['Rareza 10', 'Rareza 11', 'Rareza 12'])->default('Rareza 10');
             $table->enum('tipo', ['Casco', 'Pechera', 'Guantes', 'Cinturon', 'Botas'])->default('Casco');
             $table->integer('armadura')->default(0);
             $table->integer('res_fuego')->default(0);

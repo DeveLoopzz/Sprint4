@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Armor extends Model
 {
     protected $table = 'armor';
+    public $timestamps = false;
+
 
     //MUTADOR MAXIMA ARMADURA
     protected function armadura() : Attribute
@@ -28,7 +30,7 @@ class Armor extends Model
 
     public static function getRareza()
     {
-        return ['Rareza_10', 'Rareza_11', 'Rareza_12'];
+        return ['Rareza 10', 'Rareza 11', 'Rareza 12'];
     }
 
     //MUTADORES RESISTENCIAS
