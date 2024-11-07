@@ -11,7 +11,8 @@ class ItemController extends Controller
     
     public function read() 
     {
-        return view('Item.read');
+        $itemList = Item::all();
+        return view('Item.read', compact('itemList'));
     }
 
     public function create()
