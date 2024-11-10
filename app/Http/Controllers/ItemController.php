@@ -36,8 +36,10 @@ class ItemController extends Controller
 
     public function update() 
     {   
+        $metodosObtencion = Item::getMetodosObtencion();
+        $rarezas = Item::getRarezaItem();
         $item = Item::all();
-        return view('Item.update' , compact('item'));
+        return view('Item.update' , compact('item', 'metodosObtencion', 'rarezas'));
     }
 
     public function delete() 
