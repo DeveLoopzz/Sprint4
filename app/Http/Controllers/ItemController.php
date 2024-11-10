@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    public function __invoke()
-    {
-
-    }
+    public function __invoke(){}
     
     public function read() 
     {
-        return view('Item.read');
+        $itemList = Item::all();
+        return view('Item.read', compact('itemList'));
     }
 
     public function create()
@@ -37,8 +35,11 @@ class ItemController extends Controller
     }
 
     public function update() 
-    {
-        return view('Item.update');
+    {   
+        $metodosObtencion = Item::getMetodosObtencion();
+        $rarezas = Item::getRarezaItem();
+        $item = Item::all();
+        return view('Item.update' , compact('item', 'metodosObtencion', 'rarezas'));
     }
 
     public function delete() 

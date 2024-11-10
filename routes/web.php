@@ -17,6 +17,6 @@ Route::get('/armors/delete', [ArmorController::class, 'delete'])->name('deleteAr
 Route::get('/items', [ItemController::class, 'read'])->name('readItems');
 Route::get('/items/create', [ItemController::class, 'create'])->name('createItems');
 Route::post('/items', [ItemController::class, 'store'])->name('storeItems');
-Route::get('/items/update', [ItemController::class, 'update'])->name('udpateItems');
+Route::get('/items/update/{id}', [ItemController::class, 'update'])->name('udpateItems');
 Route::get('/items/delete', [ItemController::class, 'delete'])->name('deleteItems');
 
