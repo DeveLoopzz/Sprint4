@@ -34,16 +34,17 @@ class ItemController extends Controller
         return redirect('/items');
     }
 
-    public function update() 
+    public function update($id) 
     {   
         $metodosObtencion = Item::getMetodosObtencion();
         $rarezas = Item::getRarezaItem();
-        $item = Item::all();
+        $item = Item::findOrFail($id);
         return view('Item.update' , compact('item', 'metodosObtencion', 'rarezas'));
     }
 
-    public function delete() 
-    {
-        return view('Item.delete');
+    public function delete($id) 
+    {   
+        $item = Item::findOrFail($id);
+        return view('Item.delete', compact('item'));
     }
 }
