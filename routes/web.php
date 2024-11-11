@@ -24,3 +24,4 @@ Route::put('/items/{id}', [ItemController::class, 'confirmUpdate']);
 Route::get('/items/delete/{id}', [ItemController::class, 'delete'])->name('deleteItems');
 Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('destroyItem');
 
+
