@@ -45,6 +45,7 @@ class ArmorController extends Controller
         $armor->Socket_3 = $request->Socket_3;
 
         $armor->save();
+        //Llamar al id $armor justo despues de guardarlo
 
         return redirect('/armors');
     }
