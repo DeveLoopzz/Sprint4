@@ -14,9 +14,10 @@ class ArmorController extends Controller
     }
     public function read() 
     {   
+        $armors = Armor::all();
         $armorType = Armor::getPart();
         $armorRarity = Armor::getRareza();
-        return view('Armor.read', compact('armorRarity','armorType'));
+        return view('Armor.read', compact('armors', 'armorRarity','armorType'));
     }
 
     public function create()
