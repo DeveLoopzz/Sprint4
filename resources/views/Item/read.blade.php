@@ -9,18 +9,26 @@
 <body>
     @foreach ($itemList as $item)
     <div class= "tarjeta" style="border: 2px solid black;">
+        <h3>
+            {{$item->nombre}}
+        </h3>
+        <p>
+            {{$item->descripcion}}
+        </p>
+        <p>
+            {{$item->metodo_obtencion}}
+        </p>
+        <p>
+            {{$item->rareza}}
+        </p>
         <a href="/items/update/{{$item->id}}">
-            <h3>
-                {{$item->nombre}}
-            </h3>
             <p>
-                {{$item->descripcion}}
+                update
             </p>
+        </a>
+        <a href="/items/delete/{{$item->id}}">
             <p>
-                {{$item->metodo_obtencion}}
-            </p>
-            <p>
-                {{$item->rareza}}
+                delete
             </p>
         </a>
     </div>
