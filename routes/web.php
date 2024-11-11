@@ -10,6 +10,7 @@ Route::get('/', HomeController::class);
 //ArmorRoutes
 Route::get('/armors', [ArmorController::class, 'read'])->name('readArmor');
 Route::get('/armors/create', [ArmorController::class, 'create'])->name('createArmor');
+Route::post('/armors', [ArmorController::class, 'store'])->name('storeArmor');
 Route::get('/armors/update', [ArmorController::class, 'update'])->name('updateArmor');
 Route::get('/armors/delete', [ArmorController::class, 'delete'])->name('deleteArmor');
 
