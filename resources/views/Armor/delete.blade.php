@@ -44,6 +44,16 @@
         <p>
             Socket 3: {{$armor->socket_3}}
         </p>
+        <form action="/armors/{{$armor->id}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este item?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Confirm Delete</button>
+        </form>
+    
+        <!-- Botón para Cancelar y volver al listado -->
+        <button>
+            <a href="/armors">Cancel Delete</a>
+        </button>
     </div>
 </body>
 </html>
