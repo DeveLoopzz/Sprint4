@@ -42,6 +42,20 @@ class ItemController extends Controller
         return view('Item.update' , compact('item', 'metodosObtencion', 'rarezas'));
     }
 
+    public function confirmUpdate(Request $request, $id) 
+    {
+        $item = Item::findOrFail($id);
+
+        $item->nombre = $request->nombre;
+        $item->descripcion = $request->descripcion;
+        $item->metodo_obtencion = $request->metodo_obtencion;
+        $item->rareza = $request->rareza;
+
+        $item->save();
+
+        return redirect('/items');
+    }
+
     public function delete($id) 
     {   
         $item = Item::findOrFail($id);
