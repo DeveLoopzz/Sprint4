@@ -61,6 +61,8 @@ class ArmorController extends Controller
 
     public function destroy($id)
     {
-        
+        $armorDelete = Armor::findOrFail($id);
+        $armorDelete->delete();
+        return redirect('/armors');
     }
 }
