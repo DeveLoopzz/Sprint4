@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->enum('socket_1', [0,1,2,3,4])->default(0)->nullable();
             $table->enum('socket_2', [0,1,2,3,4])->default(0)->nullable();
             $table->enum('socket_3', [0,1,2,3,4])->default(0)->nullable();
+
         });
     }
 
