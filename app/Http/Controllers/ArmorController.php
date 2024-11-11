@@ -53,8 +53,14 @@ class ArmorController extends Controller
         return view('Armor.update');
     }
 
-    public function delete() 
+    public function delete($id) 
     {
-        return view('Armor.delete');
+        $armor = Armor::findOrFail($id);
+        return view('Armor.delete', compact('armor'));
+    }
+
+    public function destroy($id)
+    {
+        
     }
 }
