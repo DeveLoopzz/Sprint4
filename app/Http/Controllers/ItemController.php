@@ -51,6 +51,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $itemDelete = Item::findOrFail($id);
-        return view('/items');
+        $itemDelete->delete();
+        return redirect('/items');
     }
 }
