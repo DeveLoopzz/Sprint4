@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1>Aqui va la vista del update item</h1>
-    <form action="/items" method="POST">
+    <form action="/items/{{$item->id}}" method="POST">
         @csrf
+        @method('PUT')
         <label>
             Nombre:
             <input type="text" name="nombre" value= "{{$item->nombre}}">
@@ -36,7 +37,7 @@
         </label>
 
         <button type="submit">
-            Create Item
+            Update Item
         </button>
     </form>
 </body>
