@@ -12,8 +12,7 @@ Route::get('/armors', [ArmorController::class, 'read'])->name('readArmor');
 Route::get('/armors/create', [ArmorController::class, 'create'])->name('createArmor');
 Route::post('/armors', [ArmorController::class, 'store'])->name('storeArmor');
 Route::get('/armors/update', [ArmorController::class, 'update'])->name('updateArmor');
-Route::get('/armors/delete/{id}/{id}', [ArmorController::class, 'delete'])->name('deleteArmor');
-Route::delete('/armors/{id}', [ArmorController::class, 'destroy'])->name('destroyArmor');
+Route::get('/armors/delete/{id}', [ArmorController::class, 'delete'])->name('deleteArmor');
 Route::delete('/armors/{id}', [ArmorController::class, 'destroy'])->name('destroyArmor');
 
 //ItemRoutes

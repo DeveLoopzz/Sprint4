@@ -45,12 +45,12 @@
             <p>
                 Socket 3: {{$armor->socket_3}}
             </p>
-            <a href="/items/update/{{$armor->id}}">
+            <a href="/armors/update/{{$armor->id}}">
                 <p>
                     update
                 </p>
             </a>
-            <a href="/items/delete/{{$armor->id}}">
+            <a href="/armors/delete/{{$armor->id}}">
                 <p>
                     delete
                 </p>
