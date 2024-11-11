@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Armor;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ArmorController extends Controller
