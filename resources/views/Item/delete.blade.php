@@ -21,7 +21,7 @@
             <p>
                 {{$item->rareza}}
             </p>
-            <form action="/items/delete/{{$item->id}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este item?');">
+            <form action="/items/{{$item->id}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este item?');">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Confirm Delete</button>
