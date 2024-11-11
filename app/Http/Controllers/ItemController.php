@@ -47,4 +47,10 @@ class ItemController extends Controller
         $item = Item::findOrFail($id);
         return view('Item.delete', compact('item'));
     }
+
+    public function destroy($id)
+    {
+        $itemDelete = Item::findOrFail($id);
+        return view('/items');
+    }
 }

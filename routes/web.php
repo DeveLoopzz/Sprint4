@@ -19,4 +19,5 @@ Route::get('/items/create', [ItemController::class, 'create'])->name('createItem
 Route::post('/items', [ItemController::class, 'store'])->name('storeItems');
 Route::get('/items/update/{id}', [ItemController::class, 'update'])->name('udpateItems');
 Route::get('/items/delete', [ItemController::class, 'delete'])->name('deleteItems');
+Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
 
