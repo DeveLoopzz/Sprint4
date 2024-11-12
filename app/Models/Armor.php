@@ -24,6 +24,11 @@ class Armor extends Model
         'Socket_3',
     ];
 
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'armor_have_item')
+                    ->withPivot('quantity');
+    }
 
     //MUTADOR MAXIMA ARMADURA
     protected function armadura() : Attribute
