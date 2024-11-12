@@ -9,6 +9,20 @@ class Armor extends Model
 {
     protected $table = 'armor';
     public $timestamps = false;
+    protected $fillable = [
+        'nombre',
+        'rareza',
+        'tipo',
+        'armadura',
+        'res_fuego',
+        'res_agua',
+        'res_rayo',
+        'res_hielo',
+        'res_draco',
+        'Socket_1',
+        'Socket_2',
+        'Socket_3',
+    ];
 
 
     //MUTADOR MAXIMA ARMADURA

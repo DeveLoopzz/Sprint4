@@ -11,7 +11,7 @@
         @csrf
         <label>
             Nombre:
-            <input type="text" name="nombre">
+            <input type="text" name="nombre" value="{{ old('nombre') }}">
         </label>
         <br>
         <label>
@@ -21,7 +21,7 @@
                     <option value="{{$item->id}}">{{ucfirst($item->nombre)}}</option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_1">
+            <input type="number" name="quantity_1" value="{{ old('quantity_1') }}">
         </label>
         <br>
         <label>
@@ -31,7 +31,7 @@
                     <option value="{{$item->id}}">{{ucfirst($item->nombre)}}</option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_2">
+            <input type="number" name="quantity_2" value="{{ old('quantity_2') }}">
         </label>
         <br>
         <label>
@@ -41,7 +41,7 @@
                     <option value="{{$item->id}}">{{ucfirst($item->nombre)}}</option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_3">
+            <input type="number" name="quantity_3" value="{{ old('quantity_3') }}">
         </label>
         <br>
         <label>
@@ -51,7 +51,7 @@
                     <option value="{{$item->id}}">{{ucfirst($item->nombre)}}</option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_4">
+            <input type="number" name="quantity_4" value="{{ old('quantity_4') }}">
         </label>
         <br>
         <label>
@@ -74,32 +74,32 @@
         <br>
         <label>
             Armadura:
-            <input type="text" name="armadura">
+            <input type="text" name="armadura" value="{{ old('armadura') }}">
         </label>
         <br>
         <label>
             Resistencia fuego:
-            <input type="text" name="res_fuego">
+            <input type="text" name="res_fuego" value="{{ old('res_fuego') }}">
         </label>
         <br>
         <label>
             Resistencia agua:
-            <input type="text" name="res_agua">
+            <input type="text" name="res_agua" value="{{ old('res_agua') }}">
         </label>
         <br>
         <label>
             Resistencia rayo:
-            <input type="text" name="res_rayo">
+            <input type="text" name="res_rayo" value="{{ old('res_rayo') }}">
         </label>
         <br>
         <label>
             Resistencia hielo:
-            <input type="text" name="res_hielo">
+            <input type="text" name="res_hielo" value="{{ old('res_hielo') }}">
         </label>
         <br>
         <label>
             Resistencia draco:
-            <input type="text" name="res_draco">
+            <input type="text" name="res_draco" value="{{ old('res_draco') }}">
         </label>
         <br>
 
@@ -107,5 +107,15 @@
             Create Armor
         </button>
     </form>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </body>
 </html>
