@@ -54,6 +54,7 @@ class ArmorController extends Controller
             'Socket_3' => 'nullable|integer|min:1',
         ]);
 
+        if($validatedDataArmor){
         $armor = Armor::create([
             'nombre' => $validatedDataArmor['nombre'],
             'rareza' => $validatedDataArmor['rareza'],
@@ -67,7 +68,8 @@ class ArmorController extends Controller
             'Socket_1' => $validatedDataArmor['Socket_1'] ?? null,
             'Socket_2' => $validatedDataArmor['Socket_2'] ?? null,
             'Socket_3' => $validatedDataArmor['Socket_3'] ?? null,
-        ]);
+            ]);
+        }   
 
         $validatedDataItems = $request->validate([
         'item_1' => 'required|distinct|different:item_2,item_3,item_4',
@@ -80,6 +82,8 @@ class ArmorController extends Controller
         'quantity_4' => 'required|integer|min:1',
         ]);
 
+        if($validatedDataItems) 
+        {       
         $armorHaveItems_1 = armorHaveItem::create([
             'armor_id' => $armor->id,
             'item_id' => $validatedDataItems['item_1'],
@@ -100,6 +104,7 @@ class ArmorController extends Controller
             'item_id' => $validatedDataItems['item_4'],
             'quantity' => $validatedDataItems['quantity_4'],
         ]);
+    }
 
         return redirect('/armors');
     }

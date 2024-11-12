@@ -26,7 +26,7 @@ class Armor extends Model
 
     public function items()
     {
-        return $this->belongsToMany(Item::class, 'armor_have_items')
+        return $this->belongsToMany(Item::class, 'armor_have_item')
                     ->withPivot('quantity');
     }
 

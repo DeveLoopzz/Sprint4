@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/armors/{id}" method="POST">
+    <form action="/armors/{{$armor->id}}" method="POST">
         @csrf
         @method('PUT')
         <label>
@@ -25,7 +25,7 @@
                     </option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_1" value="{{$armor->items->firstWhere('id', $armor->items[0]->id)->pivot->quantity ?? '') }}">
+            <input type="number" name="quantity_1">
         </label>
         <br>
         <label>
@@ -39,7 +39,7 @@
                         </option>
                     @endforeach
                 </select>
-                <input type="number" name="quantity_2" value="{{$armor->items->firstWhere('id', $armor->items[1]->id)->pivot->quantity ?? '')}}">
+                <input type="number" name="quantity_2">
             </label>
         <br>
         <label>
@@ -52,8 +52,7 @@
                     </option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_3" value="{{$armor->items->firstWhere('id', $armor->items[2]->id)->pivot->quantity ?? '')}}">
-        </label>
+            <input type="number" name="quantity_3">
         <br>
         <label>
             Item 4:
@@ -65,7 +64,7 @@
                     </option>
                 @endforeach
             </select>
-            <input type="number" name="quantity_4" value="{{$armor->items->firstWhere('id', $armor->items[3]->id)->pivot->quantity ?? '')}}">
+            <input type="number" name="quantity_4">
         </label>
         <br>
         <label>
