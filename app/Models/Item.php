@@ -9,6 +9,19 @@ class Item extends Model
     protected $table = 'items';
     public $timestamps = false;
 
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'metodo_obtencion',
+        'rareza',
+    ];
+
+    public function armors()
+    {
+        return $this->belongsToMany(Armor::class, 'armor_have_items')
+                    ->withPivot('quantity');
+    }
+
     //GETTERS DE ENUMS
     public static function getMetodosObtencion()
     {
