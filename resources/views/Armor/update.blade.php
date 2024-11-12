@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    @php
+        $selectedItemId = [];   
+    @endphp
     <form action="/armors/{{$armor->id}}" method="POST">
         @csrf
         @method('PUT')
@@ -18,53 +21,90 @@
         <label>
             Item 1:
             <select name="item_1">
-                @foreach ($itemList as $item)
+                @foreach ($itemList->reverse() as $item)
                     <option value="{{ $item->id }}" 
-                        @if ($armor->items->contains('id', $item->id)) selected @endif>
+                        @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId)) 
+                         selected 
+                         @php
+                             $item1 = $item->id;
+                             $quantity1 = $armor->items->where('id', $item->id)->first()?->pivot->quantity;
+                         @endphp
+                         @endif>
                         {{ ucfirst($item->nombre) }}
                     </option>
                 @endforeach
+                @php
+                $selectedItemId[] = $item1;
+                @endphp
             </select>
-            <input type="number" name="quantity_1">
+            <input type="number" name="quantity_1" value= "{{$quantity1}}">
         </label>
         <br>
         <label>
             <label>
                 Item 2:
                 <select name="item_2">
-                    @foreach ($itemList as $item)
+                    @foreach ($itemList->reverse() as $item)
                         <option value="{{ $item->id }}" 
-                            @if ($armor->items->contains('id', $item->id)) selected @endif>
+                            @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId))
+                             selected
+                             @php
+                                $item2 = $item->id;
+                                $quantity2 = $armor->items->where('id', $item->id)->first()?->pivot->quantity;
+                             @endphp
+
+                             @endif>
                             {{ ucfirst($item->nombre) }}
                         </option>
                     @endforeach
+                    @php
+                    $selectedItemId[] = $item2;
+                    @endphp
                 </select>
-                <input type="number" name="quantity_2">
+                <input type="number" name="quantity_2" value= "{{$quantity2}}">
             </label>
         <br>
         <label>
             Item 3:
             <select name="item_3">
-                @foreach ($itemList as $item)
+                @foreach ($itemList->reverse() as $item)
                     <option value="{{ $item->id }}" 
-                        @if ($armor->items->contains('id', $item->id)) selected @endif>
+                        @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId))
+                         selected 
+                         @php
+                            $item3 = $item->id;
+                            $quantity3 = $armor->items->where('id', $item->id)->first()?->pivot->quantity;
+                         @endphp
+                         @endif>
                         {{ ucfirst($item->nombre) }}
                     </option>
                 @endforeach
+                @php
+                $selectedItemId[] = $item3;
+                @endphp
             </select>
-            <input type="number" name="quantity_3">
+            <input type="number" name="quantity_3" value= "{{$quantity3}}">
         <br>
         <label>
             Item 4:
             <select name="item_4">
-                @foreach ($itemList as $item)
+                @foreach ($itemList->reverse() as $item)
                     <option value="{{ $item->id }}" 
-                        @if ($armor->items->contains('id', $item->id)) selected @endif>
+                        @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId)) 
+                        selected 
+                        @php
+                            $item4 = $item->id;
+                            $quantity4 = $armor->items->where('id', $item->id)->first()?->pivot->quantity;
+                        @endphp
+                        @endif>
                         {{ ucfirst($item->nombre) }}
                     </option>
                 @endforeach
+                @php
+                $selectedItemId[] = $item4;
+                @endphp
             </select>
-            <input type="number" name="quantity_4">
+            <input type="number" name="quantity_4" value= "{{$quantity4}}">
         </label>
         <br>
         <label>
@@ -121,6 +161,10 @@
         </button>
     </form>
 
+    <button>
+        <a href="/armors">Cancel Update</a>
+    </button>
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -130,5 +174,6 @@
         </ul>
     </div>
 @endif
+
 </body>
 </html>
