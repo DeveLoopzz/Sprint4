@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Armor;
 use App\Models\armorHaveItem;
 use App\Models\Item;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ArmorController extends Controller
@@ -32,6 +33,7 @@ class ArmorController extends Controller
 
     public function store(Request $request)
     {
+
         $armorItem_1 = new armorHaveItem();
         $armorItem_2 = new armorHaveItem();
         $armorItem_3 = new armorHaveItem();
@@ -148,8 +150,16 @@ class ArmorController extends Controller
         return view('Armor.update');
     }
 
-    public function delete() 
+    public function delete($id) 
     {
-        return view('Armor.delete');
+        $armor = Armor::findOrFail($id);
+        return view('Armor.delete', compact('armor'));
+    }
+
+    public function destroy($id)
+    {
+        $armorDelete = Armor::findOrFail($id);
+        $armorDelete->delete();
+        return redirect('/armors');
     }
 }
