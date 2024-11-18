@@ -26,8 +26,6 @@
                 @method('DELETE')
                 <button type="submit">Confirm Delete</button>
             </form>
-        
-            <!-- Botón para Cancelar y volver al listado -->
             <button>
                 <a href="/items">Cancel Delete</a>
             </button>
