@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+<x-app-layout>
+<div class="max-w-md mx-auto">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li> · {{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+</div>
     @php
         $selectedItemId = [];   
     @endphp
-    <form action="/armors/{{$armor->id}}" method="POST">
+
+    <form action="/armors/{{$armor->id}}" method="POST" class="max-w-md mx-auto">
         @csrf
         @method('PUT')
-        <label>
+        <div class="relative z-0 w-full mb-5 group">
             Nombre:
-            <input type="text" name="nombre" value="{{$armor->nombre}}">
-        </label>
-        <br>
-        <label>
-            Item 1:
-            <select name="item_1">
+        <input type="text" name="nombre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{$armor->nombre}}"/>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+        <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item 1</label>
+            <select name="item_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 @foreach ($itemList->reverse() as $item)
                     <option value="{{ $item->id }}" 
                         @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId)) 
@@ -37,13 +41,14 @@
                 $selectedItemId[] = $item1;
                 @endphp
             </select>
-            <input type="number" name="quantity_1" value= "{{$quantity1}}">
-        </label>
-        <br>
-        <label>
-            <label>
-                Item 2:
-                <select name="item_2">
+        </div>
+        <div>
+            Cantidad:
+            <input type="number" name="quantity_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value= "{{$quantity1}}">
+        </div>
+        <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item 2</label>
+                <select name="item_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     @foreach ($itemList->reverse() as $item)
                         <option value="{{ $item->id }}" 
                             @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId))
@@ -61,12 +66,14 @@
                     $selectedItemId[] = $item2;
                     @endphp
                 </select>
-                <input type="number" name="quantity_2" value= "{{$quantity2}}">
-            </label>
-        <br>
-        <label>
-            Item 3:
-            <select name="item_3">
+            </div>
+            <div>
+                Cantidad:
+                <input type="number" name="quantity_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value= "{{$quantity2}}">
+            </div>
+            <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item 3</label>
+            <select name="item_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 @foreach ($itemList->reverse() as $item)
                     <option value="{{ $item->id }}" 
                         @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId))
@@ -83,11 +90,14 @@
                 $selectedItemId[] = $item3;
                 @endphp
             </select>
-            <input type="number" name="quantity_3" value= "{{$quantity3}}">
-        <br>
-        <label>
-            Item 4:
-            <select name="item_4">
+        </div>
+        <div>
+            Cantidad:
+            <input type="number" name="quantity_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value= "{{$quantity3}}">
+        </div>
+        <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item 4</label>
+            <select name="item_4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 @foreach ($itemList->reverse() as $item)
                     <option value="{{ $item->id }}" 
                         @if ($armor->items->contains('id', $item->id) && !in_array($item->id, $selectedItemId)) 
@@ -104,76 +114,61 @@
                 $selectedItemId[] = $item4;
                 @endphp
             </select>
-            <input type="number" name="quantity_4" value= "{{$quantity4}}">
-        </label>
-        <br>
-        <label>
-            Rareza:
-            <select name="rareza">
+        </div>
+        <div>
+            Cantidad:
+            <input type="number" name="quantity_4" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value= "{{$quantity4}}">
+        </div>
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rareza</label>
+            <select name="rareza" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 @foreach ($armorRarity as $rareza)
                     <option value="{{$rareza}}" @if ($rareza == $armor->rareza) selected @endif>{{ucfirst($rareza)}}</option>
                 @endforeach
             </select>
-        </label>
-        <br>
-        <label>
-            Tipo:
-            <select name="tipo">
-                @foreach ($armorType as $type)
-                    <option value="{{$type}}" @if($type == $armor->tipo) selected @endif>{{ucfirst($type)}}</option>
+        </div>
+        
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo</label>
+            <select name="tipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                @foreach ($armorType as $Type)
+                    <option value="{{$Type}}" @if($Type == $armor->tipo) selected @endif>{{ucfirst($Type)}}</option>
                 @endforeach
             </select>
-        </label>
-        <br>
-        <label>
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
             Armadura:
-            <input type="text" name="armadura" value="{{$armor->armadura}}">
-        </label>
-        <br>
-        <label>
+        <input type="text" name="armadura" value="{{$armor->armadura}}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('armadura') }}"/>
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
             Resistencia fuego:
-            <input type="text" name="res_fuego" value="{{$armor->res_fuego}}">
-        </label>
-        <br>
-        <label>
+        <input type="text" name="res_fuego" value="{{$armor->res_fuego}}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('res_fuego') }}"/>
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
             Resistencia agua:
-            <input type="text" name="res_agua" value="{{$armor->res_agua}}">
-        </label>
-        <br>
-        <label>
+        <input type="text" name="res_agua"  value="{{$armor->res_agua}}"class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('res_agua') }}"/>
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
             Resistencia rayo:
-            <input type="text" name="res_rayo" value="{{$armor->res_rayo}}">
-        </label>
-        <br>
-        <label>
+        <input type="text" name="res_rayo"  value="{{$armor->res_rayo}}"class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('res_rayo') }}"/>
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
             Resistencia hielo:
-            <input type="text" name="res_hielo" value="{{$armor->res_hielo}}">
-        </label>
-        <br>
-        <label>
+        <input type="text" name="res_hielo" value="{{$armor->res_hielo}}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('res_hielo') }}"/>
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
             Resistencia draco:
-            <input type="text" name="res_draco" value="{{$armor->res_draco}}">
-        </label>
-        <br>
-
-        <button type="submit">
-            Update Armor
-        </button>
+        <input type="text" name="res_draco" value="{{$armor->res_draco}}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="{{ old('res_draco') }}"/>
+        </div>
+        
+        </div>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
     </form>
-
-    <button>
-        <a href="/armors">Cancel Update</a>
-    </button>
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-</body>
-</html>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><a href="/armors">Cancel</a></button>
+</x-app-layout>
