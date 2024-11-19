@@ -51,7 +51,7 @@ class ItemController extends Controller
         $item->metodo_obtencion = $request->metodo_obtencion;
         $item->rareza = $request->rareza;
 
-        $item->save();
+        $item->update($request->all());
 
         return redirect('/items');
     }

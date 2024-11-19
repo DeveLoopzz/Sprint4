@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <header class="flex justify-center items-center h-20 bg-gray-100">
         <nav class="flex justify-between" aria-label="Breadcrumb">
             <ol class="inline-flex items-center mb-3 sm:mb-0">

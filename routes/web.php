@@ -13,7 +13,6 @@ Route::get('/armors/create', [ArmorController::class, 'create'])->name('createAr
 Route::post('/armors', [ArmorController::class, 'store'])->name('storeArmor');
 Route::get('/armors/update/{id}', [ArmorController::class, 'update'])->name('updateArmor');
 Route::put('/armors/{id}', [ArmorController::class, 'confirmUpdate']);
-Route::get('/armors/delete/{id}', [ArmorController::class, 'delete'])->name('deleteArmor');
 Route::delete('/armors/{id}', [ArmorController::class, 'destroy'])->name('destroyArmor');
 
 //ItemRoutes
