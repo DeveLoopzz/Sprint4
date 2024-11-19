@@ -8,6 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Armor extends Model
 {
     protected $table = 'armor';
+    public $timestamps = false;
+    protected $fillable = [
+        'nombre',
+        'rareza',
+        'tipo',
+        'armadura',
+        'res_fuego',
+        'res_agua',
+        'res_rayo',
+        'res_hielo',
+        'res_draco',
+        'Socket_1',
+        'Socket_2',
+        'Socket_3',
+    ];
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'armor_have_item')
+                    ->withPivot('quantity');
+    }
 
     //MUTADOR MAXIMA ARMADURA
     protected function armadura() : Attribute
@@ -18,6 +39,17 @@ class Armor extends Model
                return $armadura > 200 ? 200 : $armadura;
             }
         );
+    }
+
+    //GETTERS DE ENUMS
+    public static function getPart() 
+    {
+        return['Casco', 'Pechera', 'Guantes', 'Cinturon', 'Botas'];
+    }
+
+    public static function getRareza()
+    {
+        return ['Rareza 10', 'Rareza 11', 'Rareza 12'];
     }
 
     //MUTADORES RESISTENCIAS

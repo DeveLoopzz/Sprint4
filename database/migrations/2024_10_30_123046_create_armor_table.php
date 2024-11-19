@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,7 +15,7 @@ return new class extends Migration
         Schema::create('armor', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->enum('rareza', ['Rareza_10', 'Rareza_11', 'Rareza_12'])->default('Rareza_10');
+            $table->enum('rareza', ['Rareza 10', 'Rareza 11', 'Rareza 12'])->default('Rareza 10');
             $table->enum('tipo', ['Casco', 'Pechera', 'Guantes', 'Cinturon', 'Botas'])->default('Casco');
             $table->integer('armadura')->default(0);
             $table->integer('res_fuego')->default(0);
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->enum('socket_1', [0,1,2,3,4])->default(0)->nullable();
             $table->enum('socket_2', [0,1,2,3,4])->default(0)->nullable();
             $table->enum('socket_3', [0,1,2,3,4])->default(0)->nullable();
+
         });
     }
 
